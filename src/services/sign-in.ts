@@ -14,13 +14,15 @@ export async function signInWithEmailAndPassword({
   password,
 }: SignInRequest): Promise<SignInResponse> {
   const result = await api
-    .post('login', {
+    .post('api/v1/login', {
       json: {
         email,
         password,
       },
     })
-    .json<SignInResponse>();
+    .json<{ data: { token: string; }; }>();
 
-  return result;
+  const token = result.data.token;
+  console.log(token);
+  return { token };
 }

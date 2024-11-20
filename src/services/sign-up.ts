@@ -11,7 +11,7 @@ export async function signUp({
   email,
   password,
 }: SignUpRequest): Promise<void> {
-  await api.post('users', {
+  await api.post('api/v1/users/', {
     json: {
       name,
       email,

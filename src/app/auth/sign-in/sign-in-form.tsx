@@ -47,6 +47,7 @@ export function SignInForm({ className, ...props }: SignInProps) {
           <div className="space-y-1">
             <Label htmlFor="email">Email</Label>
             <Input
+              name="email"
               id="email"
               type="email"
               autoCapitalize="none"
@@ -66,6 +67,7 @@ export function SignInForm({ className, ...props }: SignInProps) {
             <Label htmlFor="password">Password</Label>
             <PasswordInput
               id="password"
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

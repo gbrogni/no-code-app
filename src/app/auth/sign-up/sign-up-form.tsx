@@ -20,12 +20,7 @@ export function SignUpForm() {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
-    async (formData) => {
-      if (password !== passwordConfirmation) {
-        return { success: false, message: 'Passwords do not match', errors: {} };
-      }
-      return await signUpAction(formData);
-    },
+    signUpAction,
     () => {
       router.push('/auth/sign-in');
     },
@@ -69,6 +64,7 @@ export function SignUpForm() {
         <div className="space-y-1">
           <Label htmlFor="password">Password</Label>
           <PasswordInput
+            name="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -84,6 +80,7 @@ export function SignUpForm() {
         <div className="space-y-1">
           <Label htmlFor="passwordConfirmation">Confirm your password</Label>
           <PasswordInput
+            name="passwordConfirmation"
             id="passwordConfirmation"
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
