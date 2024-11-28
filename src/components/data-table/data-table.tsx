@@ -1,5 +1,3 @@
-'use client';
-
 import {
   CellContext,
   ColumnFiltersState,
@@ -82,10 +80,10 @@ export function DataTable<TData>({
   const table = useDataTable(columns, data);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 min-h-[300px]">
       <DataTableToolbar table={table} />
-      <div className="rounded-md border">
-        <div className="max-h-[405px] overflow-auto">
+      <div className="rounded-md border overflow-auto">
+        <div className="max-h-[465px] overflow-auto">
           <Table className="table-auto w-full">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
